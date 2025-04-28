@@ -1,0 +1,100 @@
+@font-face {
+  font-family: "SpoqaHanSansNeo-Regular";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --main-color: #000000;
+  --sub-color: #767676;
+  --bg-color: #21BF48;
+}
+
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip-path: inset(50%);
+	border: 0;
+	clip: rect(0 0 0 0);
+}
+
+html {
+  font-size: 10px;
+  font-weight: 400;
+}
+
+body {
+  font-family: "SpoqaHanSansNeo-Regular";
+  color: var(--main-color);
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 2.6rem 32rem 0;
+}
+
+header h1 img {
+  width: 12.4rem;
+  height: 3.8rem;
+}
+
+.box-search {
+  margin-left: 3rem;
+  position: relative;
+}
+
+.box-search input {
+  width: 40rem;
+  height: 4.6rem;
+  padding-left: 22px;
+
+  border: 2px solid var(--bg-color);
+  border-radius: 50px;
+
+  font-size: 1.6rem;
+}
+
+.box-search input:focus {
+  outline: none;
+}
+
+#btn-search {
+  position: absolute;
+  top: 0.9rem;
+  right: 2.2rem;
+  background-color: #fff;
+  border: none;
+}
+
+#icon-group {
+  display: flex;
+  flex-direction: row;
+  gap: 2.6rem;
+  margin-left: auto;
+}
+
+#icon-group li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+
+  width: 4.6rem;
+  height: 5rem;
+
+  font-size: 1.2rem;
+  line-height: 1.4rem;
+  color: var(--sub-color);
+}
+
+#icon-group li img {
+  width: 3.2rem;
+  height: 3.2rem;
+}
