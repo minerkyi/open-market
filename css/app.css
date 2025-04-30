@@ -1,0 +1,286 @@
+@import url('./reset.css');
+@import url('./product.css');
+@import url('./detail.css');
+@import url('./login.css');
+@import url('./join.css');
+
+@font-face {
+  font-family: "SpoqaHanSansNeo-Regular";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --main-color: #000000;
+  --sub-color: #767676;
+  --bg-color: #21BF48;
+  --bg-sub-color: #C4C4C4;
+  --bg-default-color: #ffffff
+}
+
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip-path: inset(50%);
+	border: 0;
+	clip: rect(0 0 0 0);
+}
+
+html {
+  font-size: 10px;
+  font-weight: 400;
+}
+
+body {
+  font-family: "SpoqaHanSansNeo-Regular";
+  color: var(--main-color);
+}
+
+/* 헤더 */
+header {
+  max-width: 128rem;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  
+  margin: 2.6rem auto;
+
+  position: relative;
+}
+/* 헤더 로고 */
+header h1 img {
+  width: 12.4rem;
+  height: 3.8rem;
+}
+/* 헤더 검색창 */
+.form-search {
+  margin-left: 3rem;
+  
+  display: flex;
+  align-items: center;
+  
+  border: 2px solid var(--bg-color);
+  border-radius: 50px;
+}
+.form-search input {
+  width: 32.8rem;
+  height: 4.6rem;
+  margin-left: 2.2rem;
+
+  font-size: 1.6rem;
+
+  border: none;
+}
+.form-search input:focus {
+  outline: none;
+}
+/* 헤더 검색창 검색버튼 */
+#btn-search {
+  margin-right: 2.2rem;
+}
+/* 헤더 우측 유저 정보 */
+.user-navigation {
+  display: flex;
+  align-items: center;
+  gap: 2.6rem;
+
+  margin-left: auto;
+}
+.user-navigation a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+
+  width: 4.6rem;
+  height: 5rem;
+
+  font-size: 1.2rem;
+  color: var(--sub-color);
+}
+.user-navigation img {
+  width: 3.2rem;
+  height: 3.2rem;
+}
+
+/* 메인 배너 */
+article {
+  height: 50rem;
+  margin-bottom: 8rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+
+  background-color: #f2f2f2;
+}
+/* 메인 배너 리스트 */
+.slider-list {
+  width: 100%;
+  height: 100%;
+
+  position: relative;
+}
+/* 메인 배너 아이템 */
+/* opacity 속성으로 show, hide 처리 */
+.slider-item {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+
+  opacity: 0;
+  text-align: center;
+}
+.slider-item.active {
+  opacity: 1;
+}
+.slider-item:nth-child(1) {
+  background-color: #3498db;
+}
+.slider-item:nth-child(2) {
+  background-color: #e74c3c;
+}
+.slider-item:nth-child(3) {
+  background-color: #2ecc71;
+}
+/* 메인 배너 좌,우측 이동 버튼 */
+.slider-nav {
+  position: absolute;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.slider-prev {
+  left: 10px;
+}
+.slider-next {
+  right: 10px;
+}
+/* 메인 배너 하단 dot */
+.slider-controls {
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+
+  position: absolute;
+  bottom: 2rem;
+}
+.slider-dot {
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  background-color: #ffffff;
+  cursor: pointer;
+}
+.slider-dot.active {
+  background-color: var(--main-color);
+}
+
+/* 메인 상품 정보 */
+.sec-product {
+  display: flex;
+  justify-self: center;
+}
+/* 메인 상품 리스트 */
+.ul-product {
+  display: grid;
+  grid-template-columns: repeat(3, 38rem);
+  gap: 7.8rem 7rem;
+}
+/* 메인 상품 아이템 텍스트 */
+.product-description {
+  margin: 1.6rem auto 18rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.li-product-item p:nth-of-type(1) {
+  font-size: 1.6rem;
+  line-height: 2.2rem;
+  color: var(--sub-color);
+}
+.li-product-item p:nth-of-type(2) {
+  font-size: 1.8rem;
+  line-height: 2.2rem;
+  color: var(--main-color);
+}
+.li-product-item p:nth-of-type(3) {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--main-color);
+}
+.li-product-item p:nth-of-type(3) span {
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+
+/* 푸터 */
+footer {
+  height: 29.8rem;
+  margin: 0 auto;
+  
+  background-color: #f2f2f2;
+}
+/* 회사 정보 및 SNS */
+.company-info {
+  max-width: 128rem;
+  margin: 0 auto 3rem;
+
+  display: flex;
+  justify-content: space-between;
+
+  border-bottom: 1px solid #c4c4c4;
+}
+/* 회사 정보 및 SNS 리스트 */
+.company-info ul {
+  display: flex;
+  flex-direction: row;
+  gap: 1.4rem;
+}
+.company-info nav {
+  padding-top: 6rem;
+}
+.company-info-list li {
+  font-size: 1.4rem;
+  color: var(--main-color);
+}
+.company-info-list li a {
+  font-size: 1.4rem;
+  color: var(--main-color);
+}
+.company-info-list li a strong {
+  font-weight: 700;
+}
+/* SNS 리스트 */
+.sns-group {
+  padding-top: 5.4rem;
+  padding-bottom: 2.2rem;
+}
+/* 회사 주소 */
+address {
+  max-width: 128rem;
+  margin: 0 auto;
+}
+address p {
+  font-size: 1.4rem;
+  line-height: 2.4rem;
+  color: var(--sub-color);
+}
+address p strong{
+  font-weight: 700;
+}

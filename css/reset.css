@@ -145,3 +145,7 @@ button {
     cursor: pointer;
     outline: inherit;
 }
+
+input {
+    padding: 0;
+}

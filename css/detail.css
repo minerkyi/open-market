@@ -1,0 +1,163 @@
+/* 메인 상품 상세 */
+.sec-product-detail {
+  margin-top: 8rem;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 5rem;
+}
+/* 메인 상품 상세 판매자 이름 */
+.shop-name  {
+  font-size: 1.8rem;
+  color: var(--sub-color);
+}
+/* 메인 상품 상세 상품명 */
+.product-name {
+  margin-top: 1.6rem;
+
+  font-size: 3.6rem;
+  color: var(--main-color);
+}
+/* 메인 상품 상세 가격 */
+.product-price {
+  margin-top: 2rem;
+
+  font-size: 3.6rem;
+  color: var(--main-color);
+}
+.product-price span {
+  font-size: 1.8rem;
+}
+/* 메인 상품 상세 배송 방식 */
+.product-shipping {
+  width: 63rem;
+  margin-top: 13.8rem;
+  padding-bottom: 2rem;
+
+  font-size: 1.6rem;
+  color: var(--sub-color);
+
+  border-bottom: 2px solid var(--bg-sub-color);
+}
+/* 메인 상품 상세 수량 */
+.product-quantity {
+  width: 63rem;
+  margin-top: 3rem;
+  padding-bottom: 3rem;
+
+  display: flex;
+
+
+  border-bottom: 2px solid var(--bg-sub-color);
+}
+.product-quantity button {
+  width: 5rem;
+  height: 5rem;
+
+  border: 1px solid var(--bg-sub-color);
+}
+.product-quantity input {
+  width: 5rem;
+  height: 5rem;
+
+  font-size: 1.8rem;
+  text-align: center;
+  outline: none;
+
+  border: 1px solid var(--bg-sub-color);
+  border-left: none;
+  border-right: none;
+}
+/* 메인 상품 상세 총 금액 */
+.product-total-price {
+  margin-top: 4.6rem;
+
+  display: flex;
+  gap: 28.9rem;
+}
+.product-total-price p:nth-of-type(1) {
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+.product-total-price p:nth-of-type(2) {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+
+  font-size: 1.8rem;
+  color: var(--sub-color);
+}
+.product-total-price p:nth-of-type(2) strong {
+  font-weight: 700;
+}
+.text-total-price {
+  font-size: 3.6rem;
+  color: var(--bg-color);
+}
+.text-total-price span {
+  font-size: 1.8rem;
+  font-weight: 400;
+}
+/* 메인 상품 상세 구매 및 장바구나 */
+.product-order {
+  margin-top: 3rem;
+
+  display: flex;
+  gap: 1.4rem;
+}
+.product-order a {
+  width: 41.6rem;
+  height: 6rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--bg-default-color);
+
+  border-radius: 0.5rem;
+  background-color: var(--bg-color);
+}
+.product-order button {
+  width: 20rem;
+  height: 6rem;
+
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--bg-default-color);
+
+  border-radius: 0.5rem;
+  background-color: var(--sub-color);
+}
+
+/* 메인 상품 상세 추가 정보 */
+.sec-product-info {
+  max-width: 128rem;
+  margin: 14rem auto 35.9rem; 
+
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: var(--sub-color);
+}
+.sec-product-info ul {
+  display: flex;
+}
+.sec-product-info ul li {
+  width: 32rem;
+  height: 6rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-bottom: 6px solid #e0e0e0;
+
+  cursor: pointer;
+}
+.sec-product-info ul li.active {
+  color: var(--bg-color);
+  border-color: var(--bg-color);
+}

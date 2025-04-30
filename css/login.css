@@ -1,0 +1,130 @@
+/* 메인 로그인 */
+.login-wrap {
+  max-width: 55rem;
+  margin: 10rem auto 0;
+
+  position: relative;
+}
+.login-wrap h2 {
+  display: flex;
+  justify-content: center;
+}
+.login-wrap h2 img {
+  width: 23.8rem;
+  height: 7.4rem;
+}
+
+/* 메인 로그인 폼 */
+.sec-login {
+  margin-top: 7rem;
+
+  position: relative;
+}
+/* 메인 로그인 폼 탭 */
+.login-tab {
+  display: flex;
+  
+  position: absolute;
+  top: 0;
+}
+.login-tab button{
+  width: 27.5rem;
+  height: 8rem;
+  padding-bottom: 1.8rem;
+
+  font-size: 1.8rem;
+  font-weight: 500;
+  line-height: 2.2rem;
+
+  border: 1px solid var(--bg-sub-color);
+  border-radius: 10px;
+  z-index: 100;
+
+  background-color: var(--bg-default-color);
+}
+.login-tab button:nth-of-type(1).active {
+  border-bottom: 0;
+  border-right: 0;
+  border-bottom-left-radius: 0;
+}
+.login-tab button:nth-of-type(2).active {
+  border-bottom: 0;
+  border-left: 0;
+  border-bottom-right-radius: 0;
+}
+.login-tab button:not(.active) {
+  background-color: #f2f2f2;
+  border-radius: 1rem;
+  z-index: 0;
+}
+/* 메인 로그인 폼 입력 */
+.form-login {
+  width: 100%;
+  padding-top: 3rem;
+  padding-left: 3.5rem;
+
+  position: absolute;
+  top: 6rem;
+
+  border: 1px solid var(--bg-sub-color);
+  border-radius: 1rem;
+  
+  background-color: var(--bg-default-color);
+  
+  z-index: 10;
+}
+.form-login input {
+  width: 48rem;
+  height: 6rem;
+
+  font-size: 1.6rem;
+  font-weight: 500;
+
+  border: none;
+  border-bottom: 1px solid var(--bg-sub-color);
+  outline: none;
+}
+.form-login input::placeholder {
+  font-weight: 400;
+  color: var(--sub-color);
+}
+.form-login a {
+  width: 48rem;
+  height: 6rem;
+  margin: 3.6rem 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--bg-default-color);
+
+  border-radius: 0.5rem;
+  background-color: var(--bg-color);
+}
+.form-login .text-error {
+  margin-bottom: -1rem;
+  padding-top: 2.6rem;
+
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #eb5757;
+  display: none;
+}
+/* 메인 로그인 하단 회원가입 링크 */
+.join-group {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 1.4rem;
+  
+  position: absolute;
+  /* top: 41.8rem; */
+  top: 38.2rem;
+}
+.join-group a {
+  font-size: 1.6rem;
+  color: #333333;
+}
