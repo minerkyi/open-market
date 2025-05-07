@@ -4,27 +4,92 @@ import Login from './login.js';
 import Join from './join.js';
 
 const $main = document.getElementById('main-contents');
+const $header = document.getElementById('header');
+const $footer = document.getElementById('footer');
+const $btnMypage = document.getElementById('btn-mypage');
+const $btnLogout = document.getElementById('btn-logout');
+const $mypageBox = document.getElementsByClassName('sec-mypage-box')[0];
+let template = Product;
 
 const routes = (url) => {
-  let template = Product;
   switch(url) {
     case '/':
+      showHeader();
       template = Product;
       break;
     case '/login':
+      hideHeader();
       template = Login;
       break;
     case '/join':
+      hideHeader();
       template = Join;
       break;
     case '/detail':
+      showHeader();
       template = Detail;
       break;
     default:
+      showHeader();
       template = Product;
       break;
   }
-  return template;
+  viewContents(template);
+};
+export {routes};
+
+const viewContents = (template) => {
+  $main.innerHTML = '';
+  $main.appendChild(template.template());
+  if(template.addEvent) {
+    template.addEvent();
+  }
 };
 
-$main.appendChild(routes('/detail').template());
+const showHeader = () => {
+  const $textMypage = document.getElementById('text-mypage');
+  if(getCookie('hodu-access')) {
+    $textMypage.innerText = '마이페이지';
+  } else {
+    $textMypage.innerText = '로그인';
+  }
+  $header.classList.remove('hidden');
+  $footer.classList.remove('hidden');
+};
+
+const hideHeader = () => {
+  $header.classList.add('hidden');
+  $footer.classList.add('hidden');
+};
+
+const getCookie = (name) => {
+  const matches = document.cookie.match(new RegExp(
+    "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+  ));
+
+  return matches ? decodeURIComponent(matches[1]) : undefined;
+};
+
+$btnMypage.addEventListener('click', (e) => {
+  e.preventDefault();
+
+  if(getCookie('hodu-access') === '') {
+    routes('/login');
+  } else {
+    $mypageBox.classList.remove('hidden');
+  }
+});
+
+$btnLogout.addEventListener('click', () => {
+  document.cookie = 'hodu-access=';
+  routes('/login');
+});
+
+document.addEventListener('click', (e) => {
+  if(e.target.id !== 'btn-mypage') {
+    $mypageBox.classList.add('hidden');
+  }
+});
+
+
+routes('/product');

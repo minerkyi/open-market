@@ -8,7 +8,7 @@
     </head>
     <body>
       <!-- header start -->
-      <header>
+      <header id="header">
         <h1><img src="./assets/Logo-hodu.png" alt="HODU"></h1>
 
         <form class="form-search">
@@ -19,13 +19,19 @@
 
         <nav class="user-navigation">
           <a href="#">
-            <img src="./assets/icon-shopping-cart.svg" alt="">
             <span>장바구니</span>
           </a>
-          <a href="#">
-            <img src="./assets/icon-user.svg" alt="">
-            <span>로그인</span>
-          </a>
+          <div class="mypage-group">
+            <a href="#" id="btn-mypage">
+              <span id="text-mypage">로그인</span>
+            </a>
+            <section class="sec-mypage-box hidden">
+              <ul>
+                <li>마이페이지</li>
+                <li id="btn-logout">로그아웃</li>
+              </ul>
+            </section>
+          </div>
         </nav>
       </header>
       <!-- // header end -->
@@ -37,7 +43,7 @@
       <!-- // main end -->
       
       <!-- footer start -->
-      <footer>
+      <footer id="footer">
         <h2 class="sr-only">호두샵 소개 및 정보</h2>
         <div class="company-info">
           <nav>
@@ -94,56 +100,6 @@
         <section class="sec-product">
           <h3 class="sr-only">상품 목록</h3>
           <ul class="ul-product">
-            <li class="li-product-item">
-              <a href="#">
-                <img src="./assets/img.png" alt="">
-                <div class="product-description">
-                  <p>우당탕탕 라이캣의 실험실</p>
-                  <p>Hack Your Life 개발자 노트북 파우치</p>
-                  <p>29,000 원</p>
-                </div>
-              </a>
-            </li>
-            <li class="li-product-item">
-              <a href="#">
-                <img src="./assets/img.png" alt="">
-                <div class="product-description">
-                  <p>우당탕탕 라이캣의 실험실</p>
-                  <p>Hack Your Life 개발자 노트북 파우치</p>
-                  <p>29,000 원</p>
-                </div>
-              </a>
-            </li>
-            <li class="li-product-item">
-              <a href="#">
-                <img src="./assets/img.png" alt="">
-                <div class="product-description">
-                  <p>우당탕탕 라이캣의 실험실</p>
-                  <p>Hack Your Life 개발자 노트북 파우치</p>
-                  <p>29,000<span>원</span></p>
-                </div>
-              </a>
-            </li>
-            <li class="li-product-item">
-              <a href="#">
-                <img src="./assets/img.png" alt="">
-                <div class="product-description">
-                  <p>우당탕탕 라이캣의 실험실</p>
-                  <p>Hack Your Life 개발자 노트북 파우치</p>
-                  <p>29,000 원</p>
-                </div>
-              </a>
-            </li>
-            <li class="li-product-item">
-              <a href="#">
-                <img src="./assets/img.png" alt="">
-                <div class="product-description">
-                  <p>우당탕탕 라이캣의 실험실</p>
-                  <p>Hack Your Life 개발자 노트북 파우치</p>
-                  <p>29,000 원</p>
-                </div>
-              </a>
-            </li>
           </ul>
         </section>
       </template>
@@ -157,20 +113,22 @@
               <button class="active">구매회원 로그인</button>
               <button>판매회원 로그인</button>
             </div>
-            <form action="#" class="form-login">
-              <label for="user-id">
-                <input type="text" id="user-id" name="user-id" placeholder="아이디">
-              </label>
-              <label for="user-pw">
-                <input type="text" id="user-pw" name="user-pw" placeholder="비밀번호">
-              </label>
-              <p class="text-error">아이디 또는 비밀번호가 일치하지 않습니다.</p>
-              <a href="#">로그인</a>
-            </form>
-            <div class="join-group">
-              <a href="#">회원가입</a>
-              <span>|</span>
-              <a href="#">비밀번호 찾기</a>
+            <div class="login-contents">
+              <form action="#" class="form-login">
+                <label for="user-id">
+                  <input type="text" id="user-id" name="user-id" placeholder="아이디">
+                </label>
+                <label for="user-pw">
+                  <input type="password" id="user-pw" name="user-pw" placeholder="비밀번호">
+                </label>
+                <p class="text-error hidden">아이디 또는 비밀번호가 일치하지 않습니다.</p>
+                <a href="#" id="btn-login">로그인</a>
+              </form>
+              <div class="join-group">
+                <a href="#" id="btn-user-join">회원가입</a>
+                <span>|</span>
+                <a href="#">비밀번호 찾기</a>
+              </div>
             </div>
           </section>
         </div>
@@ -197,8 +155,8 @@
                     <input type="password" id="user-pw" name="user-pw">
                   </div>
                   <div class="password-group">
-                    <label for="user-pw">비밀번호 재확인</label>
-                    <input type="password" id="user-pw" class="active" name="user-pw">
+                    <label for="recheck-pw">비밀번호 재확인</label>
+                    <input type="password" id="recheck-pw" class="active" name="recheck-pw">
                   </div>
                   <div>
                     <label for="user-name">이름</label>
@@ -208,7 +166,7 @@
                     <label for="user-phone1" class="first-number">
                       휴대폰번호<br>
                       <input type="text" id="user-phone1" class="active" name="user-phone1" value="010" readonly>
-                      <ul>
+                      <ul id="select-number" class="hidden">
                         <li>010</li>
                         <li>011</li>
                         <li>016</li>

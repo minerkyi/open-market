@@ -7,6 +7,10 @@
   justify-content: center;
   gap: 5rem;
 }
+.sec-product-detail > img {
+  width: 60rem;
+  height: 60rem;
+}
 /* 메인 상품 상세 판매자 이름 */
 .shop-name  {
   font-size: 1.8rem;

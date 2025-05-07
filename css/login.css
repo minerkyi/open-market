@@ -57,14 +57,16 @@
   border-radius: 1rem;
   z-index: 0;
 }
+/* 메인 로그인 폼 */
+.login-contents {
+  position: absolute;
+  top: 6rem;
+}
 /* 메인 로그인 폼 입력 */
 .form-login {
   width: 100%;
   padding-top: 3rem;
   padding-left: 3.5rem;
-
-  position: absolute;
-  top: 6rem;
 
   border: 1px solid var(--bg-sub-color);
   border-radius: 1rem;
@@ -111,18 +113,15 @@
   font-size: 1.6rem;
   font-weight: 500;
   color: #eb5757;
-  display: none;
 }
 /* 메인 로그인 하단 회원가입 링크 */
 .join-group {
   width: 100%;
+  margin-top: 3rem;
+
   display: flex;
   justify-content: center;
   gap: 1.4rem;
-  
-  position: absolute;
-  /* top: 41.8rem; */
-  top: 38.2rem;
 }
 .join-group a {
   font-size: 1.6rem;
