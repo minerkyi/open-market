@@ -95,6 +95,9 @@
 .product-total-price p:nth-of-type(2) strong {
   font-weight: 700;
 }
+.text-total-quantity {
+  color: var(--bg-color);
+}
 .text-total-price {
   font-size: 3.6rem;
   color: var(--bg-color);
@@ -110,7 +113,7 @@
   display: flex;
   gap: 1.4rem;
 }
-.product-order a {
+.product-order a:nth-of-type(1) {
   width: 41.6rem;
   height: 6rem;
 
@@ -125,9 +128,13 @@
   border-radius: 0.5rem;
   background-color: var(--bg-color);
 }
-.product-order button {
+.product-order a:nth-of-type(2) {
   width: 20rem;
   height: 6rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   font-size: 1.8rem;
   font-weight: 700;
@@ -164,4 +171,58 @@
 .sec-product-info ul li.active {
   color: var(--bg-color);
   border-color: var(--bg-color);
+}
+
+/* 모달창 */
+#modal-login {
+  width:  36rem;
+  height: 20rem;
+  padding: 1.8rem;
+
+  border: 1px solid var(--bg-sub-color);
+
+  background-color: var(--bg-default-color);
+}
+
+#btn-close {
+  width: 100%;
+
+  display: flex;
+  justify-content: end;
+}
+
+#modal-login .text-group {
+  margin-top: 1rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 1.6rem;
+  line-height: 2rem;
+}
+
+#modal-login .btn-group {
+  margin-top: 3rem;
+
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+
+}
+#modal-login .btn-group button {
+  width: 10rem;
+  height: 4rem;
+
+  font-size: 1.6rem;
+  color: var(--bg-default-color);
+
+  border-radius: 0.5rem;
+  background-color: var(--bg-color);
+}
+#modal-login .btn-group button:nth-of-type(1) {
+  color: var(--sub-color);
+  border: 1px solid var(--bg-sub-color);
+  background-color: var(--bg-default-color);
 }

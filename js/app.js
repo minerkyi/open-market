@@ -36,7 +36,6 @@ const routes = (url) => {
   }
   viewContents(template);
 };
-export {routes};
 
 const viewContents = (template) => {
   $main.innerHTML = '';
@@ -73,10 +72,10 @@ const getCookie = (name) => {
 $btnMypage.addEventListener('click', (e) => {
   e.preventDefault();
 
-  if(getCookie('hodu-access') === '') {
-    routes('/login');
-  } else {
+  if(getCookie('hodu-access')) {
     $mypageBox.classList.remove('hidden');
+  } else {
+    routes('/login');
   }
 });
 
@@ -90,6 +89,6 @@ document.addEventListener('click', (e) => {
     $mypageBox.classList.add('hidden');
   }
 });
-
+export {routes, getCookie};
 
 routes('/product');

@@ -5,8 +5,12 @@ class Product {
   constructor(keyward = '') {
     this.keyward = keyward;
     this.$productList;
-    this.$productItem;
+    this.$btnBannerPrev;
+    this.$btnBannerNext;
+    this.$bannerItems;
+    this.$bannerDots;
     this.products;
+    this.bannerIdx = 0;
   }
 
   template() {
@@ -17,6 +21,12 @@ class Product {
   }
 
   addEvent() {
+    this.$btnBannerPrev = document.getElementsByClassName('slider-prev')[0];
+    this.$btnBannerNext = document.getElementsByClassName('slider-next')[0];
+    this.$bannerItems = document.querySelectorAll('.slider-item');
+    this.$bannerDots = document.querySelectorAll('.slider-dot');
+
+    // 상품 목록 클릭 이벤트 등록 -> 상품 상세 페이지 이동
     this.$productList.addEventListener('click', function(e) {
       e.preventDefault();
 
@@ -25,6 +35,60 @@ class Product {
         commonData.id = $detail.getAttribute('data-id');
         routes('/detail');
       }
+    });
+
+    // 배너 보기 이전 이벤트 등록
+    this.$btnBannerPrev.addEventListener('click', () => {
+      this.bannerIdx--;
+
+      if(this.bannerIdx < 0) {
+        this.bannerIdx = this.$bannerItems.length - 1;
+      }
+
+      this.$bannerItems.forEach((el) => {
+        el.classList.remove('active');
+      });
+      this.$bannerItems[this.bannerIdx].classList.add('active');
+
+      this.$bannerDots.forEach((el) => {
+        el.classList.remove('active');
+      });
+      this.$bannerDots[this.bannerIdx].classList.add('active');
+    });
+
+    // 배너 보기 다음 이벤트 등록
+    this.$btnBannerNext.addEventListener('click', () => {
+      this.bannerIdx++;
+
+      if(this.bannerIdx >= this.$bannerItems.length) {
+        this.bannerIdx = 0;
+      }
+
+      this.$bannerItems.forEach((el) => {
+        el.classList.remove('active');
+      });
+      this.$bannerItems[this.bannerIdx].classList.add('active');
+
+      this.$bannerDots.forEach((el) => {
+        el.classList.remove('active');
+      });
+      this.$bannerDots[this.bannerIdx].classList.add('active');
+    });
+
+    // 배너 보기 하단 이동 이벤트 등록
+    this.$bannerDots.forEach((el) => {
+      el.addEventListener('click', () => {
+        this.bannerIdx = el.getAttribute('data-index');
+        this.$bannerItems.forEach((el) => {
+          el.classList.remove('active');
+        });
+        this.$bannerItems[this.bannerIdx].classList.add('active');
+  
+        this.$bannerDots.forEach((el) => {
+          el.classList.remove('active');
+        });
+        this.$bannerDots[this.bannerIdx].classList.add('active');
+      });
     });
   }
 

@@ -84,13 +84,13 @@
         <article class="banner">
           <h3 class="sr-only">배너</h3>
           <ul class="slider-list">
-            <li class="slider-item">슬라이드 1<br>첫 번째 배너 내용</li>
-            <li class="slider-item active">슬라이드 2<br>두 번째 배너 내용</li>
+            <li class="slider-item active">슬라이드 1<br>첫 번째 배너 내용</li>
+            <li class="slider-item">슬라이드 2<br>두 번째 배너 내용</li>
             <li class="slider-item">슬라이드 3<br>세 번째 배너 내용</li>
           </ul>
           <ul class="slider-controls">
-            <li class="slider-dot" data-index="0"></li>
-            <li class="slider-dot active" data-index="1"></li>
+            <li class="slider-dot active" data-index="0"></li>
+            <li class="slider-dot" data-index="1"></li>
             <li class="slider-dot" data-index="2"></li>
           </ul>
 
@@ -141,27 +141,33 @@
           <form action="#" class="form-join">
             <section class="sec-form">
               <div class="join-tab">
-                <button class="active">구매회원가입</button>
-                <button>판매회원가입</button>
+                <button type="button" class="active">구매회원가입</button>
+                <button type="button">판매회원가입</button>
               </div>
               <div class="join-input-group">
                 <div>
                   <div>
-                    <label for="user-id">아이디</label><input type="text" id="user-id" name="user-id">
-                    <button>중복확인</button>
+                    <label for="user-id">아이디</label>
+                    <input type="text" id="user-id" name="user-id">
+                    <input type="hidden" id="user-is-dupl" name="user-is-dupl" value="Y">
+                    <button type="button" id="btn-check">중복확인</button>
                   </div>
+                  <p class="text-error text-id-error hidden">필수 정보입니다.</p>
                   <div class="password-group">
                     <label for="user-pw">비밀번호</label>
                     <input type="password" id="user-pw" name="user-pw">
                   </div>
+                  <p class="text-error text-pw-error hidden">필수 정보입니다.</p>
                   <div class="password-group">
                     <label for="recheck-pw">비밀번호 재확인</label>
-                    <input type="password" id="recheck-pw" class="active" name="recheck-pw">
+                    <input type="password" id="recheck-pw" name="recheck-pw">
                   </div>
+                  <p class="text-error text-repw-error hidden">비밀번호가 일치하지 않습니다.</p>
                   <div>
                     <label for="user-name">이름</label>
                     <input type="text" id="user-name" name="user-name">
                   </div>
+                  <p class="text-error text-name-error hidden">필수 정보입니다.</p>
                   <div>
                     <label for="user-phone1" class="first-number">
                       휴대폰번호<br>
@@ -177,20 +183,21 @@
                     </label>
                     <label for="user-phone2">
                       <br>
-                      <input type="text" id="user-phone2" name="user-phone2">
+                      <input type="text" id="user-phone2" name="user-phone2" maxlength="4">
                     </label>
                     <label for="user-phone3">
                       <br>
-                      <input type="text" id="user-phone3" name="user-phone3">
+                      <input type="text" id="user-phone3" name="user-phone3" maxlength="4">
                     </label>
                   </div>
+                  <p class="text-error text-phone-error hidden">필수 정보입니다.</p>
                 </div>
                 <section class="sec-agree">
                   <label for="check-agree">
                     <input type="checkbox" id="check-agree">
                     호두샵의 <a href="#">이용약관</a> 및 <a href="#">개인정보처리방침</a>에 대한 내용을 확인하였고 동의합니다.
                   </label>
-                  <a href="#" class="active">가입하기</a>
+                  <a href="#" id="btn-join">가입하기</a>
                 </section>
               </div>
             </section>
@@ -208,21 +215,21 @@
             <p class="product-price">17,500<span>원</span></p>
             <p class="product-shipping">택배배송 / 무료배송</p>
             <p class="product-quantity">
-              <button><img src="./assets/icon-minus-line.svg" alt="상품 빼기"></button>
-              <input type="text" value="1" readonly>
-              <button><img src="./assets/icon-plus-line.svg" alt="상품 추가"></button>
+              <button id="btn-minus"><img src="./assets/icon-minus-line.svg" alt="상품 빼기"></button>
+              <input type="text" value="1" id="input-quantity" readonly>
+              <button id="btn-plus"><img src="./assets/icon-plus-line.svg" alt="상품 추가"></button>
             </p>
             <div class="product-total-price">
               <p>총 상품 금액</p>
               <p>
-                <span>총 수량<strong>1</strong>개</span>
+                <span>총 수량 <strong class="text-total-quantity">1</strong>개</span>
                 <span>|</span>
                 <strong class="text-total-price">17,500<span>원</span></strong>
               </p>
             </div>
             <p class="product-order">
               <a href="#">바로 구매</a>
-              <button>장바구니</button>
+              <a href="#">장바구니</a>
             </p>
           </div>
         </section>
@@ -234,6 +241,17 @@
             <li>반품/교환정보</li>
           </ul>
         </section>
+        <dialog id="modal-login">
+          <button id="btn-close"><img src="./assets/icon-delete.svg" alt="닫기"></button>
+          <div class="text-group">
+            <p>로그인이 필요한 서비스입니다.</p>
+            <p>로그인 하시겠습니까?</p>
+          </div>
+          <div class="btn-group">
+            <button>아니오</button>
+            <button>예</button>
+          </div>
+        </dialog>
       </template>
       <script type="module" src="./js/app.js"></script>
     </body>

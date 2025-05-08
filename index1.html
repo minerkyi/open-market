@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title></title>
+    </head>
+    <body>
+      <div id="container"></div>
+      <a class="link-item" href="/product-list">product list</a>
+      <a class="link-item" href="/article-list">article list</a>
+  </body>
+  <script>
+      function router() {
+          const $container = document.querySelector("#container");
+          const { pathname } = location;
+  
+          if(pathname === "/") {
+              $container.innerHTML = "<h1>HOME</h1>";
+              console.log("home")
+          }
+          else if(pathname === "/product-list") {
+              $container.innerHTML = "<h1>상품 목록</h1>";
+              console.log("product")
+          }
+          else if(pathname === "/article-list") {
+              $container.innerHTML = "<h1>게시글 목록</h1>"
+              console.log("aritcle")
+          }
+          else {
+              $container.innerHTML = "<h1>HOME</h1>";
+              console.log("home 나머지")
+          }
+      }
+      router();
+  
+      // 이벤트 버블링을 활용하여 window에 이벤트가 전파되면 새로고침을 막아준다.
+      window.addEventListener("click", (e) => {
+          // a태그가 클릭되면 일단 새로고침과 페이지 이동을 막는다.
+          if(e.target.className === "link-item") {
+              e.preventDefault(); 
+  
+              const { href } = e.target; // FULL URL이 반환된다.
+              const path = href.replace(window.location.origin, ""); // URL 앞 부분을 날린다. location.origin은 앞 부분을 가지고 있다.
+  
+              history.pushState({path}, null, path);
+              router();
+          }
+      }) 
+    // popstate 이벤트?? 뒤로가기나 앞으로갈때 발생하는 이벤트다.
+      window.addEventListener("popstate", e => router())
+  </script>
+</html>
