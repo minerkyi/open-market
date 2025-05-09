@@ -45,23 +45,52 @@
 <img src="map.png" width="100%">
 
 ## 4. 프로젝트 구조
-📦open-market  
- ┣ 📂assets // 이미지 파일 모음  
- ┣ 📂css   
- ┃ ┣ 📜app.css  
- ┃ ┣ 📜detail.css  
- ┃ ┣ 📜join.css  
- ┃ ┣ 📜login.css  
- ┃ ┣ 📜product.css  
- ┃ ┗ 📜reset.css  
- ┣ 📂js   
- ┃ ┣ 📜app.js  
- ┃ ┣ 📜common.js  
- ┃ ┣ 📜detail.js  
- ┃ ┣ 📜join.js  
- ┃ ┣ 📜login.js  
- ┃ ┗ 📜product.js  
- ┗ 📜index.html  
+```
+open-market
+├─ assets
+│  ├─ check-box.svg
+│  ├─ check-fill-box.svg
+│  ├─ icon-check-off.svg
+│  ├─ icon-check-on.svg
+│  ├─ icon-check.svg
+│  ├─ icon-delete.svg
+│  ├─ icon-down-arrow.svg
+│  ├─ icon-fb.svg
+│  ├─ icon-img.png
+│  ├─ icon-insta.svg
+│  ├─ icon-minus-line.svg
+│  ├─ icon-plus-line.svg
+│  ├─ icon-plus.svg
+│  ├─ icon-rhigt-arrow.svg
+│  ├─ icon-search.png
+│  ├─ icon-search.svg
+│  ├─ icon-shopping-bag.svg
+│  ├─ icon-shopping-cart-2.svg
+│  ├─ icon-shopping-cart.svg
+│  ├─ icon-swiper-1.svg
+│  ├─ icon-swiper-2.svg
+│  ├─ icon-up-arrow.svg
+│  ├─ icon-user-2.svg
+│  ├─ icon-user.svg
+│  ├─ icon-yt.svg
+│  └─ Logo-hodu.png
+├─ css
+│  ├─ app.css
+│  ├─ detail.css
+│  ├─ join.css
+│  ├─ login.css
+│  ├─ product.css
+│  └─ reset.css
+├─ js
+│  ├─ app.js
+│  ├─ common.js
+│  ├─ detail.js
+│  ├─ join.js
+│  ├─ login.js
+│  └─ product.js
+├─ index.html
+└─ README.md
+```  
 
  ## 5. 화면 설계
  | 상품 목록  | 상품 상세  |
