@@ -122,6 +122,7 @@ class Join {
       }
       return response.json();
     }).then((data) => {
+      window.history.pushState({url, productId:commonData.id}, '', '?#login');
       routes('/login');
     }).catch((error) => {
       console.log(error);

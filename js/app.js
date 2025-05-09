@@ -2,6 +2,7 @@ import Product from './product.js';
 import Detail from './detail.js';
 import Login from './login.js';
 import Join from './join.js';
+import { commonData } from './common.js';
 
 const $main = document.getElementById('main-contents');
 const $header = document.getElementById('header');
@@ -11,7 +12,7 @@ const $btnLogout = document.getElementById('btn-logout');
 const $mypageBox = document.getElementsByClassName('sec-mypage-box')[0];
 let template = Product;
 
-const routes = (url) => {
+const routes = (url, isHis = true) => {
   switch(url) {
     case '/':
       showHeader();
@@ -35,6 +36,12 @@ const routes = (url) => {
       break;
   }
   viewContents(template);
+  if(isHis) {
+    window.history.pushState({path:url, id:commonData.id}, null, `?#${url}`);
+  } else {
+    window.history.replaceState({path:url, id:commonData.id}, null, `?#${url}`);
+  }
+  commonData.path = url;
 };
 
 const viewContents = (template) => {
@@ -89,6 +96,14 @@ document.addEventListener('click', (e) => {
     $mypageBox.classList.add('hidden');
   }
 });
+
+window.addEventListener('popstate', (e) => {
+  console.log(e.state);
+  if(e.state && e.state.path) {
+    commonData.id = e.state.id;
+    routes(e.state.path, false);
+  }
+});
 export {routes, getCookie};
 
-routes('/product');
+routes('/product', false);
