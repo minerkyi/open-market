@@ -101,7 +101,11 @@ window.addEventListener('popstate', (e) => {
   console.log(e.state);
   if(e.state && e.state.path) {
     commonData.id = e.state.id;
-    routes(e.state.path, false);
+    if(commonData.path === '/login' && e.state.path === '/join') {
+      routes('product', false);
+    } else {
+      routes(e.state.path, false);
+    }
   }
 });
 export {routes, getCookie};

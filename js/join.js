@@ -35,6 +35,7 @@ class Join {
     this.$inputPw = document.getElementById('user-pw');
     this.$inputRepw = document.getElementById('recheck-pw');
     this.$inputName = document.getElementById('user-name');
+    this.$selectNum = document.getElementById('select-number');
     this.$inputPhone1 = document.getElementById('user-phone1');
     this.$inputPhone2 = document.getElementById('user-phone2');
     this.$inputPhone3 = document.getElementById('user-phone3');
@@ -46,7 +47,6 @@ class Join {
     this.$textPhoneError = document.getElementsByClassName('text-phone-error')[0];
     this.userId;
     this.userPw;
-    this.userRepw;
     this.userName;
     this.phoneNum1;
     this.phoneNum2;
@@ -71,6 +71,17 @@ class Join {
         if(this.validationInput(this.$inputId, this.$textIdError)) {
           this.checkDuplId();
         }
+      }
+    });
+
+    // 휴대폰 앞번호 클릭 이벤트 등록
+    this.$inputPhone1.addEventListener('click', () => {
+      this.$selectNum.classList.toggle('hidden');
+    });
+    // 휴대폰 앞번호 선택 이벤트 등록
+    this.$selectNum.addEventListener('click', (e) => {
+      if(e.target.tagName === 'LI') {
+        this.$inputPhone1.value = e.target.innerText;
       }
     });
 
@@ -122,7 +133,6 @@ class Join {
       }
       return response.json();
     }).then((data) => {
-      window.history.pushState({url, productId:commonData.id}, '', '?#login');
       routes('/login');
     }).catch((error) => {
       console.log(error);

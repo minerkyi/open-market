@@ -63,7 +63,11 @@ class Login {
     }).then((data) => {
       this.$textError.classList.add('hidden');
       document.cookie = `hodu-access=${encodeURIComponent(data.refresh)}`;
-      routes('/product');
+      if(commonData.path === '/join') {
+        routes('/product');
+      } else {
+        window.history.go(-1);
+      }
     }).catch((error) => {
       console.log(error);
       this.$textError.classList.remove('hidden');
