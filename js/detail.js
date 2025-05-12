@@ -137,6 +137,7 @@ class Detail {
     this.$totalPrice.innerHTML = price;
     this.$shipping.innerText = `${data.shipping_method === 'PARCEL' ? '택배배송' : '배달'}${data.shipping_fee === 0 ? ' / 무료배송' : ` / 배송비: ${data.shipping_fee.toLocaleString('ko-KR')}`}`;
     this.$img.src = data.image;
+    this.$img.alt = data.info;
     this.price = data.price;
     this.stock = data.stock;
   }

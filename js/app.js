@@ -47,6 +47,7 @@ const routes = (url, isHis = true) => {
 const viewContents = (template) => {
   $main.innerHTML = '';
   $main.appendChild(template.template());
+  window.scrollTo(0, 0);
   if(template.addEvent) {
     template.addEvent();
   }
