@@ -235,7 +235,9 @@
   color: var(--bg-default-color);
 
   background-color: var(--bg-sub-color);
+  cursor: default;
 }
 .sec-agree > a.active {
   background-color: var(--bg-color);
+  cursor: pointer;
 }

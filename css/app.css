@@ -281,17 +281,25 @@ footer {
   gap: 1.4rem;
 }
 .company-info nav {
+  display: flex;
+
   padding-top: 6rem;
 }
-.company-info-list li {
+.company-info-list a {
+  height: 1.8rem;
+  
   font-size: 1.4rem;
   color: var(--main-color);
 }
-.company-info-list li a {
+.company-info-list a::after {
+  content: '|';
   font-size: 1.4rem;
-  color: var(--main-color);
+  padding: 0 1.4rem;
 }
-.company-info-list li a strong {
+.company-info-list a:last-of-type::after {
+  content: '';
+}
+.company-info-list a strong {
   font-weight: 700;
 }
 /* SNS 리스트 */

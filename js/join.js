@@ -108,35 +108,48 @@ class Join {
   }
 
   // 구매자 회원가입
-  callSignup() {
+  async callSignup() {
     this.userId = this.$inputId.value;
     this.userPw = this.$inputPw.value;
     this.userName = this.$inputName.value;
     this.phoneNum1 = this.$inputPhone1.value;
     this.phoneNum2 = this.$inputPhone2.value;
     this.phoneNum3 = this.$inputPhone3.value;
+    let data;
 
-    fetch(`${commonData.url}/accounts/buyer/signup/`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        'username': this.userId,
-        'password': this.userPw,
-        'name': this.userName,
-        'phone_number': this.phoneNum1 + this.phoneNum2 + this.phoneNum3
-      })
-    }).then((response) => {
+    try {
+      const response = await fetch(`${commonData.url}/accounts/buyer/signup/`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          'username': this.userId,
+          'password': this.userPw,
+          'name': this.userName,
+          'phone_number': this.phoneNum1 + this.phoneNum2 + this.phoneNum3
+        })
+      });
+  
+      data = await response.json();
       if(!response.ok) {
         throw new Error('회원가입에 실패하였습니다.');
       }
-      return response.json();
-    }).then((data) => {
+
       routes('/login');
-    }).catch((error) => {
+    } catch(error) {
       console.log(error);
-    });
+      this.$btnJoin.classList.remove('active');
+      let errorText = '';
+      Object.keys(data).forEach((key) => {
+        errorText += `${data[key][0]}\n`;
+        if(key === 'phone_number') {
+          this.$inputPhone2.value = '';
+          this.$inputPhone3.value = '';
+        }
+      });
+      alert(errorText);
+    }
   }
 
   // 아이디 중복 체크

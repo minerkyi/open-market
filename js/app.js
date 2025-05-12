@@ -13,6 +13,7 @@ const $mypageBox = document.getElementsByClassName('sec-mypage-box')[0];
 let template = Product;
 
 const routes = (url, isHis = true) => {
+  let paramId = '';
   switch(url) {
     case '/':
       showHeader();
@@ -36,10 +37,15 @@ const routes = (url, isHis = true) => {
       break;
   }
   viewContents(template);
-  if(isHis) {
-    window.history.pushState({path:url, id:commonData.id}, null, `?#${url}`);
+  if(url === '/detail') {
+    paramId = `id=${commonData.id}`;
   } else {
-    window.history.replaceState({path:url, id:commonData.id}, null, `?#${url}`);
+    paramId = '';
+  }
+  if(isHis) {
+    window.history.pushState({path:url, id:commonData.id}, null, `?${paramId}#${url}`);
+  } else {
+    window.history.replaceState({path:url, id:commonData.id}, null, `?${paramId}#${url}`);
   }
   commonData.path = url;
 };
@@ -111,4 +117,12 @@ window.addEventListener('popstate', (e) => {
 });
 export {routes, getCookie};
 
-routes('/product', false);
+console.log('init', commonData.id);
+if(location.hash === '') {
+  routes('/product', false);
+} else {
+  if(location.hash === '#/detail') {
+    commonData.id = location.search.substring(4);
+  }
+  routes(location.hash.substring(1), false);
+}
