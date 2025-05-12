@@ -22,6 +22,7 @@
 
 ## 2. 개발 환경
 ### 2.1 배포 URL
+- <https://github.com/minerkyi/open-market>
 - <https://minerkyi.github.io/open-market/>
 - 테스트용 계정
   ```
